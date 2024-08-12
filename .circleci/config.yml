@@ -6,16 +6,10 @@ jobs:
     executor: node/default
     steps:
       - checkout
-// handles cache automatically
-      - node/install-packages:
-          override-ci-command: npm i --production
       - run: npm install
 workflows:
   test-and-deploy:
     jobs:
-// Should work out of the box, cache is automatic
-      - node/test
-// deploy runs after test and only on the main branch
       - deploy:
           requires:
             - node/test
