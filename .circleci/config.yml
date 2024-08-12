@@ -8,11 +8,7 @@ jobs:
     steps:
       - checkout
       - run: echo "this is the build job"
-  deploy:
-    executor: node/default
-    steps:
-      - checkout
-      - run: echo "this is the deploy job"
+  
 workflows:
   build-and-deploy:
     jobs:
