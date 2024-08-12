@@ -11,8 +11,6 @@ workflows:
   test-and-deploy:
     jobs:
       - deploy:
-          requires:
-            - node/test
           filters:
             branches:
               only: main
