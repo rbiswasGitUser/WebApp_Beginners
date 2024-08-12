@@ -4,12 +4,32 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:13.8.0
+      - image: cimg/base:2023.06
     steps:
       - checkout
-      - run: echo "this is the build job"
-  
+      - run: echo "build job"
+  test:
+    docker:
+      - image: cimg/base:2023.06
+    steps:
+      - checkout
+      - run: echo "test job"
+  deploy:
+    docker:
+      - image: cimg/base:2023.06
+    steps:
+      - checkout
+      - run: echo "deploy job"
 workflows:
-  build-and-deploy:
+  build_and_test_and_deploy:
     jobs:
+      - build
+      - test
+      - deploy
+      
+
+
+
+
+
       
