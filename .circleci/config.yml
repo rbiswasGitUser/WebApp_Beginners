@@ -3,6 +3,8 @@ orbs:
    node: circleci/node@4.2
 jobs:
   build:
+    docker:
+      - image: cimg/node
     steps:
       - checkout
       - run: echo "this is the build job"
