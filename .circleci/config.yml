@@ -12,9 +12,9 @@ jobs:
       - checkout
       - run: echo "this is the deploy job"
 workflows:
-  test-and-deploy:
+  build-and-deploy:
     jobs:
-      - build:
+      
       - deploy:
           filters:
             branches:
