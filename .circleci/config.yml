@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node@4.2
+      - image: cimg/node:13.8.0
     steps:
       - checkout
       - run: echo "this is the build job"
@@ -16,4 +16,8 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-     
+      
+      - deploy:
+          filters:
+            branches:
+              only: main
