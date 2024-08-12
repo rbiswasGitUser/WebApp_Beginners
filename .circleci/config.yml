@@ -2,14 +2,19 @@ version: 2.1
 orbs:
    node: circleci/node@4.2
 jobs:
+  build:
+    steps:
+      - checkout
+      - run: echo "this is the build job"
   deploy:
     executor: node/default
     steps:
       - checkout
-      - run: npm install
+      - run: echo "this is the deploy job"
 workflows:
   test-and-deploy:
     jobs:
+      - build:
       - deploy:
           filters:
             branches:
